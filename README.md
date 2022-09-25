@@ -1,4 +1,12 @@
-# AWS Certified Solutions Architect - Associate (SAA-S02) Exam Notes
+# AWS Certified Solutions Architect - Associate (SAA-C03) Exam Notes
+
+
+
+
+
+![AWS Certified Solutions Architect - Associate badge](https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png)
+
+
 
 ## Table of Contents
 
@@ -88,4 +96,18 @@ It validates an examinee's ability to:
 | Design Secure Applications and Architectures | 24%                  |
 | Design Cost-Optimized Architectures          | 18%                  |
 | **Total**                                    | **100%**             |
+
+AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf
+
+https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf
+
+
+
+AWS-Certified-Solutions-Architect-Associate_Sample-Questions.pdf
+
+https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Sample-Questions.pdf
+
+
+
+
 
