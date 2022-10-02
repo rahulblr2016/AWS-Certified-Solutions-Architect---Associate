@@ -21,7 +21,9 @@ Using above services I'll design a highly available and fault tolerant architect
 
 
 
-![image-20221002143040092](C:\Users\rahchaub\AppData\Roaming\Typora\typora-user-images\image-20221002143040092.png)
+![img](https://cdn-images-1.medium.com/max/800/0*Me4AkhZxBJ-qu5UG.jpeg)
+
+
 
 ### Benefits:
 
@@ -60,9 +62,9 @@ To follow along, you need to have an [AWS](http://console.aws.amazon.com/) accou
 
 Give your VPC a name and a [CIDR](https://searchnetworking.techtarget.com/definition/CIDR) block of 10.0.0.0/16
 
-![https://miro.medium.com/max/1400/1*E6rrCI51CXQ73HBp3xq36w.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)
 
 
+![img](https://cdn-images-1.medium.com/max/800/0*kWkfB0ecFOMmKFdq.png)
 
 
 
@@ -72,13 +74,9 @@ Create VPC
 
 
 
+![img](https://cdn-images-1.medium.com/max/800/0*NUon2kf5iEbuWasf.png)
 
 
-![https://miro.medium.com/max/1400/1*z0607NzP1cbN7BDyfPEwSQ.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg)
-
-
-
-Create VPC
 
 
 
@@ -86,31 +84,13 @@ Create VPC
 
 **2**. **Setup the Internet Gateway**: The Internet Gateway allows communication between the EC2 instances in the VPC and the internet. To create the Internet Gateway, navigate to the **Internet Gateways** page and then click on **Create internet gateway** button.
 
-![https://miro.medium.com/max/1400/1*aqZQv1-KWHXt9k_eWCrL8A.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*4Y9LdWxnumsLrOOp.png)
 
 
 
 
 
-
-
-Create internet gateway
-
-
-
-
-
-![https://miro.medium.com/max/1400/1*oHCtxTLLduyNYWDVk1iDZg.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg)
-
-
-
-Create Internet Gateway
-
-
-
-
-
-We need to attach our VPC to the internet gateway. To do that:
+![img](https://cdn-images-1.medium.com/max/800/0*e7_d7Xvmj4-zuc2A.png)We need to attach our VPC to the internet gateway. To do that:
 
 **a.** we select the internet gateway
 
@@ -118,15 +98,9 @@ We need to attach our VPC to the internet gateway. To do that:
 
 **c.** Select the VPC to attach the internet gateway and click **Attach**
 
-![https://miro.medium.com/max/1400/1*xyWVXbkba62ciHrDdcg2EA.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*e8WSoez2tm1kgD5y.png)
 
 
-
-
-
-
-
-Attach the VPC to the internet gateway
 
 
 
@@ -144,25 +118,19 @@ For our setup, we shall be creating the following subnets with the corresponding
 
 ·    demo-private-subnet-4 | CIDR(10.0.4.0/24) | Availability Zone (us-east-1b)
 
-![https://miro.medium.com/max/1400/1*wdWAXMqg22Ff87BkPR7gIg.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg)
-
-
-
-
-
 
 
 create subnets
 
+![img](https://cdn-images-1.medium.com/max/800/0*btsaRxVqMYNbRTii.png)
 
 
 
-
-![https://miro.medium.com/max/1400/1*ZnSCdE-CWwmsGy-KkkUs0A.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image014.jpg)
-
+![img](https://cdn-images-1.medium.com/max/800/0*IaGxNDS85yiSlT0c.png)
 
 
-four subnets in our VPC
+
+Four subnets got sreated
 
 
 
@@ -172,7 +140,7 @@ four subnets in our VPC
 
 To create route tables, navigate over to the **Route Tables** page and click on **Create route table** button.
 
-![https://miro.medium.com/max/1400/1*S3RterDPbgWV3KwKiomzkA.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*CsEXOWVV37nrHKi2.png)
 
 
 
@@ -180,13 +148,13 @@ To create route tables, navigate over to the **Route Tables** page and click on 
 
 
 
-Create Route Table
+Route Table Created
+
+![img](https://cdn-images-1.medium.com/max/800/0*-G03uAfy0SYhdlCu.png)
 
 
 
 
-
-![https://miro.medium.com/max/1400/1*ycYS70hZB0epsDCJvd-jAg.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image018.jpg)
 
 
 
@@ -200,7 +168,7 @@ The public and the private subnet needs to be associated with the public and the
 
 To do that, we select the route table and then choose the **Subnet Association** tab.
 
-![https://miro.medium.com/max/1400/1*Am79GQ9AEZr4YODtrh4r-A.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image020.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*Px4jvBly7MveEN8n.png)
 
 
 
@@ -212,9 +180,7 @@ Subnet Associations
 
 
 
-
-
-![https://miro.medium.com/max/1400/1*Lr6WMsLYmYT7A-Pa0xT3ug.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*FYdfBK93RXttzbny.png)
 
 
 
@@ -228,7 +194,7 @@ We also need to route the traffic to the internet through the **internet gateway
 
 To do that we select the public route table and then choose the **Routes** tab. The rule should be similar to the one shown below:
 
-![https://miro.medium.com/max/1400/1*XUjneC9iyzZ1FmkT9QABng.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image024.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*EhGWtvDmqWRbwUjn.png)
 
 
 
@@ -246,11 +212,11 @@ Edit Route for the public route table
 
 Please ensure that you know the Subnet ID for the **demo-public-subnet-2.** This will be needed when creating the NAT gateway.
 
-![https://miro.medium.com/max/1400/1*fVRJrPPbB2yPinjTagaKSg.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image026.jpg)
 
 
 
 
+![img](https://cdn-images-1.medium.com/max/800/0*93st8Vy_HkTed7QO.png)
 
 
 
@@ -262,21 +228,15 @@ Create NAT Gateway
 
 Now that we have the NAT gateway, we are going to edit the private route table to make use of the NAT gateway to access the internet.
 
-![https://miro.medium.com/max/1400/1*LafqDymECdY-EdPcUfpjyQ.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image028.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*GwvsugzF5go2AjCU.png)
 
 
 
 
 
+![img](https://cdn-images-1.medium.com/max/800/0*XHHrfdHBZWV6wt05.png)
 
 
-Edit the Private Route Table
-
-
-
-
-
-![https://miro.medium.com/max/1400/1*jOVIBvKtt_oh-AMfy37URA.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image030.jpg)
 
 
 
@@ -290,7 +250,7 @@ Edit Private Route Table to use NAT Gateway for private EC2 instances
 
 **a.** Select the Application Load Balancer.
 
-![https://miro.medium.com/max/1400/1*W10RUdyrGQI-jX6V1YLIkw.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image032.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*iqutDfqxKvpTy5Ur.png)
 
 
 
@@ -308,53 +268,35 @@ Select Application Load Balancer
 
 **c.** Configure the Load Balancer with a name. Select **internet facing** for the load balancer that we will use to communicate with the frontend and **internal** for the one we will use for our backend.
 
-![https://miro.medium.com/max/1400/1*ZT81fDIXCEd7QlKnAgoPLQ.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image034.jpg)
-
-
-
-
-
-
+![img](https://cdn-images-1.medium.com/max/800/0*adWF-ZAwNUvvBVFA.png)
 
 Internet Facing Load Balancer for the Frontend tier
 
+![img](https://cdn-images-1.medium.com/max/800/0*SU5rIRKfh9eqCRmz.png)
 
 
 
 
-![https://miro.medium.com/max/1400/1*55xo4OONLKmIfpJjgMaevg.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image036.jpg)
+
+
 
 
 
 Internal Load Balancer for the Backend Tier
 
-
+![img](https://cdn-images-1.medium.com/max/800/0*qPjTS2jndEbWknPv.png)
 
 
 
 **d.** Under the Availability Zone, for the **internet facing Load Balancer**, we will select the two **public subnets** while for our **internal Load Balancer**, we will select the two **private subnet.**
 
-![https://miro.medium.com/max/1400/1*SswW7vpGFd_RV5h7oOr08Q.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image038.jpg)
-
-
-
-
-
-
-
 Availability Zone for the Internet Facing Load Balancer
 
-
-
-
-
-![https://miro.medium.com/max/1400/1*bkQmWYDiCkzLVG1UYU_I8Q.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image040.jpg)
-
-
+![img](https://cdn-images-1.medium.com/max/800/0*AcpnnIgt5WYNZY3O.png)
 
 Availability Zone for the internal Load Balancer
 
-
+![img](https://cdn-images-1.medium.com/max/800/0*JiR2mKMj1RAbhnIL.png)
 
 
 
@@ -370,17 +312,11 @@ To create an Auto Scaling Group, navigate to the **Auto Scaling Group** page, Cl
 
 **a.** Auto Scaling Group needs to have a common configuration that instances within it **MUST** have. This common configuration is made possible with the help of the **Launch Configuration**. In our Launch configuration, under the Choose AMI, the best practice is to choose the AMI which contains the application and its dependencies bundled together. You can also create your custom AMI in AWS.
 
-![https://miro.medium.com/max/1400/1*gd3cnHI-zR5YS7uF3OnJRg.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image042.jpg)
-
-
-
-
-
 
 
 Custom AMI for each tier of our application
 
-
+![img](https://cdn-images-1.medium.com/max/800/0*93W3qolJTnqPVzgw.png)
 
 
 
@@ -388,7 +324,7 @@ Custom AMI for each tier of our application
 
 **c.** Under the Configure details, give the Launch Configuration a name, eg **Demo-Frontend-LC.** Also, under the **Advance Details** dropdown, the **User data** is provided for you to type in a command that is needed to install dependencies and start the application.
 
-![https://miro.medium.com/max/1400/1*hKiPa1or7ilgCMBPMnE7ZA.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image044.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*LRSGLLatsCy_vXo7.png)
 
 
 
@@ -404,53 +340,29 @@ Custom AMI for each tier of our application
 
 **f.** Now we have our Launch Configuration, we can finish up with the creating our Auto Scaling Group. Use the below image as a template for setting up yours.
 
-![https://miro.medium.com/max/1400/1*uCLF8R9Jwp5GIyFICnMNbA.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image046.jpg)
-
-
-
-
-
-
-
 Auto Scaling Group 1
 
-
-
-
-
-![https://miro.medium.com/max/1400/1*1ihEsU9QQ8c-547lpGgBng.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image048.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*zT5t0ApUO5YrsI0i.png)
 
 
 
 Auto Scaling Group 2
 
-
+![img](https://cdn-images-1.medium.com/max/800/0*IgiETt2kZaqX5p4L.png)
 
 
 
 **g.** Under the Configure scaling policies, we want to add one instance when the CPU is greater than or equal to 80% and to scale down when the CPU is less than or equal to 50%. Use the image as a template.
 
-![https://miro.medium.com/max/1400/1*PrCiIvELQt-UNoQtF6N5Vg.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image050.jpg)
-
-
-
-
-
-
-
 Scale-up
 
-
-
-
-
-![https://miro.medium.com/max/1400/1*j36tRcLYMm3m1zXlfTzFWQ.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image052.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*gf-uewKVj_z5-dXA.png)
 
 
 
 Scale Down
 
-
+![img](https://cdn-images-1.medium.com/max/800/0*0lc6pyFCiloZYWNV.png)
 
 
 
@@ -460,38 +372,28 @@ We have almost setup or architecture. However, we cannot SSH into the EC2 instan
 
 **8. Bastion Host:** The bastion host is just an EC2 instance that sits in the public subnet. The best practice is to only allow SSH to this instance from your trusted IP. To create a bastion host, navigate to the EC2 instance page and create an EC2 instance in the **demo-public-subnet-1** subnet within our VPC. Also, ensure that it has public IP.
 
-![https://miro.medium.com/max/1400/1*v7E3AZEB4Vd-EK9VkOPTjA.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image054.jpg)
-
-
-
-
-
 
 
 Bastion Host EC2 instance in public subnet
 
-
-
-
-
-![https://miro.medium.com/max/1400/1*2nGirbrM2fm1MUh3P8HMLA.png](file:///C:/Users/rahchaub/AppData/Local/Temp/msohtmlclip1/01/clip_image056.jpg)
+![img](https://cdn-images-1.medium.com/max/800/0*6b6f5Dyq-bDsZU-j.png)
 
 
 
 Security Group of the Bastion Host
 
-
+![img](https://cdn-images-1.medium.com/max/800/0*EKgijkU9gtHxN8LH.png)
 
 
 
 We also need to allow SSH from our private instances from the Bastion Host.
 
-# Conclusion
+# 
 
-There were lots of clicking and configurations when using the console to set up a three-tier architecture in AWS. It is, however, necessary that a beginner goes through this procedure before moving towards automation.
+Ok, that's it !!
 
-In our next article, we will automate this whole architecture using terraform.
 
-Thank you for reading!
+
+
 
  
