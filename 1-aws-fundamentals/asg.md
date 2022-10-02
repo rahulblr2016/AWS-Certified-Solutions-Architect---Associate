@@ -8,6 +8,8 @@
     - Ensure we have a minimum and a maximum number of machines running
     - Automatically register new instances to a load balancer
 
+
+
 ## ASG Attributes
 
 - Launch configuration - consists of:
@@ -109,3 +111,66 @@
         - We can provision both On-Demand and Spot instances (or a mix of two)
         - We can use the T2 unlimited burst feature
         - Recommended by AWS
+
+![       An Auto Scaling group with an Application Load Balancer.     ](https://docs.aws.amazon.com/autoscaling/ec2/userguide/images/elb-tutorial-architecture-diagram.png)
+
+## Step 1: Set up a launch template or launch configuration
+
+**To select an existing launch template**
+
+1. Open the [Launch templates page](https://console.aws.amazon.com/ec2/v2/#LaunchTemplates) of the Amazon EC2 console.
+2. On the navigation bar at the top of the screen, choose the Region where the load balancer was created.
+3. Select a launch template.
+4. Choose **Actions**, **Create Auto Scaling group**.
+
+Alternatively, to create a new launch template, use the following procedure.
+
+## Step 2: Create an Auto Scaling group
+
+**To create an Auto Scaling group**
+
+1. On the **Choose launch template or configuration** page, for **Auto Scaling group name**, enter a name for your Auto Scaling group.
+
+2. [Launch template only] For **Launch template**, choose whether the Auto Scaling group uses the default, the latest, or a specific version of the launch template when scaling out.
+
+3. Choose **Next**.
+
+   The **Choose instance launch options** page appears, allowing you to choose the VPC network settings you want the Auto Scaling group to use and giving you options for launching On-Demand and Spot Instances (if you chose a launch template).
+
+4. In the **Network** section, for **VPC**, choose the VPC that you used for your load balancer. If you chose the default VPC, it is automatically configured to provide internet connectivity to your instances. This VPC includes a public subnet in each Availability Zone in the Region.
+
+5. For **Availability Zones and subnets**, choose one or more subnets from each Availability Zone that you want to include, based on which Availability Zones the load balancer is in. For more information, see [Considerations when choosing VPC subnets](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-vpc-considerations).
+
+6. [Launch template only] In the **Instance type requirements** section, use the default setting to simplify this step. (Do not override the launch template.) For this tutorial, you will launch only On-Demand Instances using the instance type specified in your launch template.
+
+7. Choose **Next** to go to the **Configure advanced options** page.
+
+8. To attach the group to an existing load balancer, in the **Load balancing** section, choose **Attach to an existing load balancer**. You can choose **Choose from your load balancer target groups** or **Choose from Classic Load Balancers**. You can then choose the name of a target group for the Application Load Balancer or Network Load Balancer you created, or choose the name of a Classic Load Balancer.
+
+9. (Optional) To use Elastic Load Balancing health checks, for **Health checks**, choose **ELB** under **Health check type**.
+
+10. When you have finished configuring the Auto Scaling group, choose **Skip to review**.
+
+11. On the **Review** page, review the details of your Auto Scaling group. You can choose **Edit** to make changes. When you are finished, choose **Create Auto Scaling group**.
+
+
+
+
+
+## Step 3: Verify that your load balancer is attached
+
+**To verify that your load balancer is attached**
+
+1. From the [Auto Scaling groups page](https://console.aws.amazon.com/ec2/v2/home?#AutoScalingGroups) of the Amazon EC2 console, select the check box next to your Auto Scaling group.
+2. On the **Details** tab, **Load balancing** shows any attached load balancer target groups or Classic Load Balancers.
+3. On the **Activity** tab, in **Activity history**, you can verify that your instances launched successfully. The **Status** column shows whether your Auto Scaling group has successfully launched instances. If your instances fail to launch, you can find troubleshooting ideas for common instance launch issues in [Troubleshoot Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/CHAP_Troubleshooting.html).
+4. On the **Instance management** tab, under **Instances**, you can verify that your instances are ready to receive traffic. Initially, your instances are in the `Pending` state. After an instance is ready to receive traffic, its state is `InService`. The **Health status** column shows the result of the Amazon EC2 Auto Scaling health checks on your instances. Although an instance may be marked as healthy, the load balancer will only send traffic to instances that pass the load balancer health checks.
+5. Verify that your instances are registered with the load balancer. Open the [Target groups page](https://console.aws.amazon.com/ec2/v2/#TargetGroups) of the Amazon EC2 console. Select your target group, and then choose the **Targets** tab. If the state of your instances is `initial`, it's probably because they are still in the process of being registered, or they are still undergoing health checks. When the state of your instances is `healthy`, they are ready for use.
+
+## Step 4: Next steps
+
+Now that you have completed this tutorial, you can learn more:
+
+- You can configure your Auto Scaling group to use Elastic Load Balancing health checks. If you enable load balancer health checks and an instance fails the health checks, the Auto Scaling group considers the instance unhealthy and replaces it. For more information, see [Add Elastic Load Balancing health checks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-add-elb-healthcheck.html).
+- You can expand your application to an additional Availability Zone in the same Region to increase fault tolerance if there is a service disruption. For more information, see [Add Availability Zones](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-add-availability-zone.html).
+- You can configure your Auto Scaling group to use a target tracking scaling policy. This automatically increases or decreases the number of instances as the demand on your instances changes. This allows the group to handle changes in the amount of traffic that your application receives. For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html).
