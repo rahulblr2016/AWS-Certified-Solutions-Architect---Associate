@@ -1,6 +1,18 @@
-# Elastic Load Balancers
+# Load Balancers - AWS
 
-## Scalability and High Availability
+
+
+
+
+A load balancer acts as the “traffic cop” sitting in front of your servers and routing client requests across all servers capable of fulfilling those requests in a manner that maximizes speed and capacity utilization and ensures that no one server is overworked, which could degrade performance.
+
+![img](https://cdn-images-1.medium.com/max/800/0*7GR5WV9b96Ikotc7.png)
+
+## Basics Features of Load Balancer
+
+
+
+#### Scalability and High Availability
 
 - Scalability means that an a system can handle greater loads by adapting
 - We can distinguish two types of scalability strategies:
@@ -27,7 +39,7 @@
     - ELB access logs will log all the access requests to the LB
     - CloudWatch Metrics will give aggregate statistics (example: connections counts)
 
-## Load Balancing Basics
+#### Function of Load Balancer
 
 - Load balancers are servers that forward internet traffic to multiple other servers (most likely EC2 instances)
 - Why use load balances?
@@ -46,11 +58,31 @@
     - It costs less to setup our custom load balancer, but it will be a lot more effort to maintain on the long run
     - An ELB is integrated with many AWS offering/services, it will be more flexible than a custom LB
 
-## Health Checks
+#### Health Checks
 
 - They enable for a LB to know if an instance for which traffic is forwarded is available to reply to requests
 - The health checks is done using a port and a route (usually /health)
 - If the response is not 200, then the instance is considered unhealthy
+
+
+
+#### **Load Balancing Algorithms**
+
+Based upon your use case, you can select of load balancing algorithm:
+
+- Round Robin – Requests are distributed across the group of servers sequentially.
+
+- Least Connections – A new request is sent to the server with the fewest current connections to clients.
+
+- Least Time – Sends requests to the server selected by a formula that combines the
+  fastest response time and fewest active connections. 
+
+- Hash – Distributes requests based on a key you define, such as the client IP address or
+  the request URL. 
+
+- IP Hash – The IP address of the client is used to determine which server receives the request.
+
+  
 
 ## Types of Load Balancers on AWS
 
@@ -62,11 +94,19 @@
 - It is recommended to use the new versions
 - We can setup **internal** (private) and **external** (public) load balancers on AWS
 
+
+
+![img](https://cdn-images-1.medium.com/max/800/1*h5shJF4Mo0Sn8nv4aP8gUQ.png)
+
 ### Classic Load Balancers (CLB)
 
 - They support 2 types of connections: TCP (layer 4) and HTTP(S) (layer 7)
 - Health checks are either TCP or HTTP based
 - CLBs provide a fixed hostname: XXX.region.elb.amazonaws.com
+
+
+
+![img](https://cdn-images-1.medium.com/max/800/1*IbSfJJ0W1AAUgQFudM4xpw.png)
 
 ### Application Load Balancers (ALB)
 
@@ -87,6 +127,10 @@
     - IP Addresses - must be private IP addresses
 - ALBs also provide a fixed hostname (same as CLBs): XXX.region.elb.amazonaws.com
 - The application servers behind the LB can not see the IP of the client who accessing them directly, but they can retrieve for **X-Forwarded-For** header. The port can be fetched from **X-Forwarded-Port** and the protocol from **X-Forwarded-Proto**
+
+
+
+![img](https://cdn-images-1.medium.com/max/800/1*zZa0E48rLrt8ftZ5MVGVcg.png)
 
 ### Network Load Balancers (NLB)
 
