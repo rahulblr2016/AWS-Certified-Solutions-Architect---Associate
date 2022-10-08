@@ -22,7 +22,7 @@ Well EC2 instance are virtual machines, running as guest machine on a physical m
 
 Before we dive into components of EC2, let's first understand the Instance types and Name:
 
-Instance Types
+**Instance Types**
 
 - The instance type that you specify determines the hardware of the host computer used for your instance. 
 - Each instance type offers different compute, memory, and storage capabilities, and is grouped in an instance family based on these capabilities. 
@@ -31,9 +31,33 @@ Instance Types
 
 <img src="https://cdn-images-1.medium.com/max/800/0*9VI3-G8Iiy8rB56L.png" alt="img" style="zoom:33%;" />
 
+**Instance Sizing**
 
 
 
+<img src="https://cdn-images-1.medium.com/max/800/1*yKRBk8vyZ7yQHrLbjp4PtQ.png" alt="img" style="zoom:50%;" />
+
+https://aws.amazon.com/ec2/instance-types/
+
+**How to Choose the instance  for you**
+
+<img src="https://cdn-images-1.medium.com/max/800/1*uNXqyt2SOI98LjsNS9m_Gg.png" alt="img" style="zoom: 50%;" />
+
+- It all depends upon the Application, you are running. 
+- Each instance type provides higher or lower minimum performance from a shared resource. 
+- For example, instance types with high I/O performance have a larger allocation of shared resources. 
+- Allocating a larger share of shared resources also reduces the variance of I/O performance. 
+- For most applications, moderate I/O performance is more than enough.
+-  However, for applications that require greater or more consistent I/O performance, consider an instance type with higher I/O performance.
+
+**What is Virtual CPU**
+
+- Amazon EC2 instances support **multithreading**, which enables multiple threads to run concurrently on a single CPU core. 
+- Each thread is represented as a virtual CPU (vCPU) on the instance. 
+- An instance has a default number of CPU cores, which varies according to instance type. For example, an `m5.xlarge` instance type has two CPU cores and two threads per core by default—four vCPUs in total.
+- A virtual CPU is typically a hyper-threaded physical core.
+- Divide vCPU count by 2 to get the core count.
+- 
 
 ### **Components of Amazon EC2**
 
