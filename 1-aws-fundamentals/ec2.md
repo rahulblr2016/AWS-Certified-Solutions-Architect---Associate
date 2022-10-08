@@ -6,6 +6,58 @@
     - Distributing load across multiple machines (ELB)
     - Scaling the services using an auto-scaling group (ASG)
 
+**In short, EC2 is a Virtual Machine, ok, then what is Virtualization**.
+
+
+
+##### **What is EC2**
+
+Well EC2 instance are virtual machines, running as guest machine on a physical machine.
+
+![img](https://cdn-images-1.medium.com/max/800/1*AKrTQ6mr-Rwffm7M0T9xdQ.png)
+
+
+
+
+
+Before we dive into components of EC2, let's first understand the Instance types and Name:
+
+Instance Types
+
+- The instance type that you specify determines the hardware of the host computer used for your instance. 
+- Each instance type offers different compute, memory, and storage capabilities, and is grouped in an instance family based on these capabilities. 
+- Select an instance type based on the requirements of the application or software that you plan to run on your instance.
+- This is how we read the name of EC2:
+
+<img src="https://cdn-images-1.medium.com/max/800/0*9VI3-G8Iiy8rB56L.png" alt="img" style="zoom:33%;" />
+
+
+
+
+
+### **Components of Amazon EC2**
+
+**Basics**
+
+-  Instances and AMIs
+- Regions and Zones
+- Instance types
+- Tags
+
+**Networking and security**
+
+- Key pairs
+- Security groups
+- Elastic IP addresses
+- Virtual private clouds
+
+**Storage**
+
+- Amazon EBS
+- Instance store
+
+
+
 ## Introduction to Security Groups (SG)
 
 - Security Groups are the fundamental of networking security in AWS
@@ -47,7 +99,7 @@
     - Installing software
     - Downloading common files from the internet
     - Any other start-up task
-- THe EC2 user data scripts run with root user privileges
+- The EC2 user data scripts run with root user privileges
 
 ## EC2 Instance Launch Types
 
